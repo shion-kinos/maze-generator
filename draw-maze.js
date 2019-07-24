@@ -44,17 +44,6 @@ function drawSqrMaze() {
       }
     }
   }
-
-  // thick walls only
-  // for (i = 0; i < outerDims; i++) {
-  //   for (j = 0; j < outerDims; j++) {
-  //     if (i == 0 && j == 1 || i == outerDims - 1 && j == outerDims - 2) continue; // entrace and exit
-  //     if (binMaze[i][j] != 0) {
-  //     context.fillRect(j * unit, i * unit, unit, unit);
-  //     }
-  //   }
-  // }
-
 }
 
 
