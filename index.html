@@ -13,20 +13,20 @@
       <table style="background-color: lightgrey;">
         <tr>
           <td>Size:</td>
-          <td><input id="maze-rows" type="number" value="18" min="2" max="72"> rows<br>
-              <input id="maze-cols" type="number" value="18" min="2" max="72"> columns</td>
-          <td><button onclick="generate()">Generate</button></td>
+          <td><input id="maze-rows" type="number" value="18" min="1" max="72"> rows<br>
+              <input id="maze-cols" type="number" value="18" min="1" max="72"> columns</td>
+          <td><button id="generate">Generate</button></td>
         </tr>
         <tr>
           <td>Path width:</td>
           <td>
             <select id="cell-width-option">
-              <option value="4">4px</option>
-              <option value="8">8px</option>
+              <option value="6">6px</option>
               <option value="12" selected>12px</option>
-              <option value="16">16px</option>
+              <option value="18">18px</option>
               <option value="24">24px</option>
-              <option value="32">32px</option>
+              <option value="30">30px</option>
+              <option value="36">36px</option>
             </select>
           </td>
         </tr>
@@ -42,11 +42,16 @@
         <tr>
           <td colspan="3"><input id="border-option" type="checkbox" checked>white border</td>
         </tr>
+        <tr>
+          <td colspan="3" style="text-align: right;"><button id="solution">Show solution</button></td>
+        </tr>
       </table>
     </div>
     <canvas id="maze-canvas" style="display: block; margin: auto;"></canvas>
+    <script src="lang-en.js"></script>
     <script src="maze-matrix.js"></script>
     <script src="algorithms.js"></script>
     <script src="maze.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

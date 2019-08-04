@@ -13,20 +13,20 @@
       <table style="background-color: lightgrey;">
         <tr>
           <td>大きさ　</td>
-          <td>縦マス数<input id="maze-rows" type="number" value="18" min="2" max="72"><br>
-              横マス数<input id="maze-cols" type="number" value="18" min="2" max="72"></td>
-          <td><button onclick="generate()">作成</button></td>
+          <td>縦<input id="maze-rows" type="number" value="18" min="1" max="72">マス<br>
+              横<input id="maze-cols" type="number" value="18" min="1" max="72">マス</td>
+          <td><button id="generate">作成</button></td>
         </tr>
         <tr>
           <td>道幅　</td>
           <td>
             <select id="cell-width-option">
-              <option value="4">4px</option>
-              <option value="8">8px</option>
+              <option value="6">6px</option>
               <option value="12" selected>12px</option>
-              <option value="16">16px</option>
+              <option value="18">18px</option>
               <option value="24">24px</option>
-              <option value="32">32px</option>
+              <option value="30">30px</option>
+              <option value="36">36px</option>
             </select>
           </td>
         </tr>
@@ -42,11 +42,16 @@
         <tr>
           <td colspan="3"><input id="border-option" type="checkbox" checked>白い枠線</td>
         </tr>
+        <tr>
+          <td colspan="3" style="text-align: right;"><button id="solution">解答を表示</button></td>
+        </tr>
       </table>
     </div>
     <canvas id="maze-canvas" style="display: block; margin: auto;"></canvas>
+    <script src="lang-ja.js"></script>
     <script src="maze-matrix.js"></script>
     <script src="algorithms.js"></script>
     <script src="maze.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
