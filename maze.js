@@ -21,7 +21,7 @@ class Maze {
     this.maze = algorithm(this.m, this.n);
     this.solved = false;
   }
-  draw(cell, wall, border, showSolution) {
+  draw(cell, wall, background, border, showSolution) {
     if (typeof this.maze === "undefined") {
       console.warn("Maze is not defined");
       return;
@@ -34,11 +34,9 @@ class Maze {
     mazeCanvas.width = this.cols * cell + (this.cols + 1) * wall + border * 2;
     mazeCanvas.height = this.rows * cell + (this.rows + 1) * wall + border * 2;
 
-    context.fillStyle = "#FFFFFF";
-    context.fillRect(0, 0, mazeCanvas.width, mazeCanvas.height);
-    if (showSolution === true) {
-      context.fillStyle = showSolution ? "pink" : "#FFFFFF";
-      context.fillRect(border, border, mazeCanvas.width - 2 * border, mazeCanvas.height - 2 * border);
+    if (background === true) {
+      context.fillStyle = "#FFFFFF";
+      context.fillRect(0, 0, mazeCanvas.width, mazeCanvas.height);
     }
 
     context.fillStyle = "#000000";
@@ -47,10 +45,13 @@ class Maze {
         if (i === 0 && j === 1 || i === this.m - 1 && j === this.n - 2) continue;
         switch (this.maze.matrix[i][j]) {
           case 0:
+            if (showSolution === true) {
+              context.fillStyle = "pink";
+              break;
+            }
             continue;
           case 4:
-            context.fillStyle = "#FFFFFF";
-            break;
+            continue;
           default:
             context.fillStyle = "#000000";
         }
@@ -113,7 +114,7 @@ class Maze {
         }
       }
     }
-    
+
     this.solved = true;
   }
 }
