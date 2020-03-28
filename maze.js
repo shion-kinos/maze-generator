@@ -20,6 +20,11 @@ class Maze {
     this.n = cols * 2 + 1;
     this.maze = algorithm(this.m, this.n);
     this.solved = false;
+
+    this.maze.jumpTo(0, 1);
+    this.maze.replace(0);
+    this.maze.jumpTo(this.m - 1, this.n - 2);
+    this.maze.replace(0);
   }
   draw(cell, wall, background, border, showSolution) {
     if (typeof this.maze === "undefined") {
@@ -42,7 +47,6 @@ class Maze {
     context.fillStyle = "#000000";
     for (let i = 0; i < this.m; i++) {
       for (let j = 0; j < this.n; j++) {
-        if (i === 0 && j === 1 || i === this.m - 1 && j === this.n - 2) continue;
         switch (this.maze.matrix[i][j]) {
           case 0:
             if (showSolution === true) {
