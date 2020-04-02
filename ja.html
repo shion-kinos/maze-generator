@@ -4,24 +4,26 @@
     <title>迷路生成器</title>
     <link rel="icon" href="maze favicon.png">
   </head>
-  <body style="background-color: #E0E0E0;">
+  <body>
     <header style="width: 50%; margin: auto; text-align: center;">
       <h1>迷路生成器</h1>
       <p>穴掘り法による迷路生成器です。JavaScriptで書きました。</p>
-      <a href="https://github.com/shion-kinos/maze-generator" target="_blank" style="text-decoration: none;"><img src="https://shion-kinos.github.io/files/GitHub%20icon.svg" style="height: 1rem;"> GitHubで原算帳を見る</a>
+      <a href="https://github.com/shion-kinos/maze-generator" target="_blank" style="text-decoration: none;"><img src="https://shion-kinos.github.io/files/GitHub%20icon.svg" style="height: 1rem;"> GitHubでソースコードを見る</a>
     </header>
     <div id="options" style="display: flex; justify-content: center; margin: auto auto 1rem; padding: 0.5rem;">
       <table style="border-style: solid; padding: 0.5rem 1rem;">
         <tr>
           <td>大きさ　</td>
-          <td>縦<input id="maze-rows" type="number" value="18" min="1" max="72" style="background-color: inherit;">マス<br>
-              横<input id="maze-cols" type="number" value="18" min="1" max="72" style="background-color: inherit;">マス</td>
+          <td>
+            縦<input id="maze-rows" type="number" value="18" min="1" max="72">マス<br>
+            横<input id="maze-cols" type="number" value="18" min="1" max="72">マス
+          </td>
           <td><button id="generate">作成</button></td>
         </tr>
         <tr>
           <td>道幅　</td>
           <td>
-            <select id="cell-width-option" style="background-color: inherit;">
+            <select id="cell-width-option">
               <option value="6">6px</option>
               <option value="12" selected>12px</option>
               <option value="18">18px</option>
@@ -41,17 +43,20 @@
           </td>
         </tr>
         <tr>
-          <td colspan="3"><input id="background-option" type="checkbox" checked>背景</td>
-        </tr>
-        <tr>
-          <td colspan="3"><input id="border-option" type="checkbox" checked>枠</td>
+          <td>背景　</td>
+          <td>
+            <div id="background-option">
+              <input id="transparent" name="background" type="radio" value="transparent" checked>なし</input>
+              <input id="opaque" name="background" type="radio" value="opaque">あり</input>
+            </div>
+          </td>
         </tr>
         <tr>
           <td colspan="3" style="text-align: right;"><button id="solution">解答を表示</button></td>
         </tr>
       </table>
     </div>
-    <canvas id="maze-canvas" style="display: block; margin: auto;"></canvas>
+    <canvas id="maze-canvas" style="display: block; margin: auto;" height="0"></canvas>
     <script src="lang-ja.js"></script>
     <script src="maze-matrix.js"></script>
     <script src="algorithms.js"></script>

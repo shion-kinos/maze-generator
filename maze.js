@@ -26,7 +26,7 @@ class Maze {
     this.maze.jumpTo(this.m - 1, this.n - 2);
     this.maze.replace(0);
   }
-  draw(cell, wall, background, border, showSolution) {
+  draw(cell, wall, background, showSolution) {
     if (typeof this.maze === "undefined") {
       console.warn("Maze is not defined");
       return;
@@ -36,6 +36,10 @@ class Maze {
       return;
     }
 
+    let border = cell;
+
+    mazeCanvas.style.borderStyle = document.querySelector("input[name='background']:checked").value === "opaque" ? "double" : "none";
+    mazeCanvas.style.padding = JSON.stringify(cell) + "px";
     mazeCanvas.width = this.cols * cell + (this.cols + 1) * wall + border * 2;
     mazeCanvas.height = this.rows * cell + (this.rows + 1) * wall + border * 2;
 

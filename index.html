@@ -4,7 +4,7 @@
     <title>Maze generator</title>
     <link rel="icon" href="maze favicon.png">
   </head>
-  <body style="background-color: #E0E0E0;">
+  <body>
     <header style="width: 50%; margin: auto; text-align: center;">
       <h1>Maze generator</h1>
       <p>This maze generator uses the recursive backtracker algorithm. Written in JavaScript.</p>
@@ -14,14 +14,16 @@
       <table style="border-style: solid; padding: 0.5rem 1rem;">
         <tr>
           <td>Size:</td>
-          <td><input id="maze-rows" type="number" value="18" min="1" max="72" style="background-color: inherit;"> rows<br>
-              <input id="maze-cols" type="number" value="18" min="1" max="72" style="background-color: inherit;"> columns</td>
+          <td>
+            <input id="maze-rows" type="number" value="18" min="1" max="72"> rows<br>
+            <input id="maze-cols" type="number" value="18" min="1" max="72"> columns
+          </td>
           <td><button id="generate">Generate</button></td>
         </tr>
         <tr>
           <td>Path width:</td>
           <td>
-            <select id="cell-width-option" style="background-color: inherit;">
+            <select id="cell-width-option">
               <option value="6">6px</option>
               <option value="12" selected>12px</option>
               <option value="18">18px</option>
@@ -41,17 +43,20 @@
           </td>
         </tr>
         <tr>
-          <td colspan="3"><input id="background-option" type="checkbox" checked>background</td>
-        </tr>
-        <tr>
-          <td colspan="3"><input id="border-option" type="checkbox" checked>border</td>
+          <td>Background:</td>
+          <td>
+            <div id="background-option">
+              <input id="transparent" name="background" type="radio" value="transparent" checked>transparent</input>
+              <input id="opaque" name="background" type="radio" value="opaque">opaque</input>
+            </div>
+          </td>
         </tr>
         <tr>
           <td colspan="3" style="text-align: right;"><button id="solution">Show solution</button></td>
         </tr>
       </table>
     </div>
-    <canvas id="maze-canvas" style="display: block; margin: auto;"></canvas>
+    <canvas id="maze-canvas" style="display: block; margin: auto;" height="0"></canvas>
     <script src="lang-en.js"></script>
     <script src="maze-matrix.js"></script>
     <script src="algorithms.js"></script>
