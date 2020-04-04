@@ -2,7 +2,7 @@ let mazeCanvas = document.querySelector("#maze-canvas");
 let context = mazeCanvas.getContext("2d");
 
 let generateButton = document.querySelector("#generate");
-let cellWidthOption = document.querySelector("#cell-width-option");
+let sizeOption = document.querySelector("#size-option");
 let wallThicknessOption = document.querySelector("#wall-thickness-option");
 let backgroundOption = document.querySelector("#background-option");
 let solutionButton = document.querySelector("#solution");
@@ -11,7 +11,7 @@ let maze = new Maze();
 
 
 generateButton.addEventListener("click", generate);
-cellWidthOption.addEventListener("change", draw);
+sizeOption.addEventListener("change", draw);
 wallThicknessOption.addEventListener("change", draw);
 backgroundOption.addEventListener("change", draw);
 solutionButton.addEventListener("click", solve);
@@ -30,8 +30,9 @@ function generate() {
 }
 function draw() {
   if (typeof maze.maze === "undefined") return;
-  let cell = parseInt(cellWidthOption.value);
-  let wall = document.querySelector("input[name='wall-thickness']:checked").value === "thin" ? cell / 6 : cell;
+  let size = parseInt(sizeOption.value);
+  let wall = size * document.querySelector("input[name='wall-thickness']:checked").value;
+  let cell = size * 6 - wall;
   let background = document.querySelector("input[name='background']:checked").value === "opaque";
   let showSolution = solutionButton.innerText === lang.showSolution ? false : true;
   maze.draw(cell, wall, background, showSolution);

@@ -13,7 +13,7 @@
     <div id="options" style="display: flex; justify-content: center; margin: auto auto 1rem; padding: 0.5rem;">
       <table style="border-style: solid; padding: 0.5rem 1rem;">
         <tr>
-          <td>Size:</td>
+          <td>Dimensions:</td>
           <td>
             <input id="maze-rows" type="number" value="18" min="1" max="72"> rows<br>
             <input id="maze-cols" type="number" value="18" min="1" max="72"> columns
@@ -21,15 +21,15 @@
           <td><button id="generate">Generate</button></td>
         </tr>
         <tr>
-          <td>Path width:</td>
+          <td>Size:</td>
           <td>
-            <select id="cell-width-option">
-              <option value="6">6px</option>
-              <option value="12" selected>12px</option>
-              <option value="18">18px</option>
-              <option value="24">24px</option>
-              <option value="30">30px</option>
-              <option value="36">36px</option>
+            <select id="size-option">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
             </select>
           </td>
         </tr>
@@ -37,8 +37,9 @@
           <td>Walls:</td>
           <td>
             <div id="wall-thickness-option">
-              <input id="thin" name="wall-thickness" type="radio" value="thin" checked>thin</input>
-              <input id="thick" name="wall-thickness" type="radio" value="thick">full width</input>
+              <input id="wall-1" name="wall-thickness" type="radio" value="1" checked>thin</input>
+              <input id="wall-2" name="wall-thickness" type="radio" value="2">medium</input>
+              <input id="wall-3" name="wall-thickness" type="radio" value="3">thick</input>
             </div>
           </td>
         </tr>
