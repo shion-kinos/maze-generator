@@ -34,12 +34,26 @@
           </td>
         </tr>
         <tr>
-          <td>壁　</td>
+          <td>種類　</td>
+          <td>
+            <div id="style-option">
+              <input id="paths" type="radio" name="style" value="paths" checked><label for="paths">道路型</label>
+              <input id="lines" type="radio" name="style" value="lines"><label for="lines">線路型</label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td id="style">壁　</td>
           <td>
             <div id="wall-thickness-option">
-              <input id="wall-1" name="wall-thickness" type="radio" value="1" checked>薄い</input>
-              <input id="wall-2" name="wall-thickness" type="radio" value="2">普通</input>
-              <input id="wall-3" name="wall-thickness" type="radio" value="3">厚い</input>
+              <input id="wall-1" type="radio" name="wall-thickness" value="1" checked><label for="wall-1">薄い</label>
+              <input id="wall-2" type="radio" name="wall-thickness" value="2"><label for="wall-2">普通</label>
+              <input id="wall-3" type="radio" name="wall-thickness" value="3"><label for="wall-3">厚い</label>
+            </div>
+            <div hidden id="path-width-option">
+              <input id="path-1" type="radio" name="path-width" value="1" checked><label for="path-1">細い</label>
+              <input id="path-2" type="radio" name="path-width" value="2"><label for="path-2">普通</label>
+              <input id="path-3" type="radio" name="path-width" value="3"><label for="path-3">太い</label>
             </div>
           </td>
         </tr>
@@ -47,8 +61,8 @@
           <td>背景　</td>
           <td>
             <div id="background-option">
-              <input id="transparent" name="background" type="radio" value="transparent" checked>なし</input>
-              <input id="opaque" name="background" type="radio" value="opaque">あり</input>
+              <input id="transparent" type="radio" name="background" value="transparent" checked><label for="transparent">透明</label>
+              <input id="opaque" type="radio" name="background" value="opaque"><label for="opaque">白</label>
             </div>
           </td>
         </tr>

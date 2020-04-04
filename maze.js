@@ -26,7 +26,7 @@ class Maze {
     this.maze.jumpTo(this.m - 1, this.n - 2);
     this.maze.replace(0);
   }
-  draw(cell, wall, background, showSolution) {
+  draw(cell, wall, inverted, background, showSolution) {
     if (typeof this.maze === "undefined") {
       console.warn("Maze is not defined");
       return;
@@ -39,7 +39,7 @@ class Maze {
     let border = cell;
 
     mazeCanvas.style.borderStyle = document.querySelector("input[name='background']:checked").value === "opaque" ? "double" : "none";
-    mazeCanvas.style.padding = JSON.stringify(cell) + "px";
+    mazeCanvas.style.padding = JSON.stringify(Math.max(cell, wall)) + "px";
     mazeCanvas.width = this.cols * cell + (this.cols + 1) * wall + border * 2;
     mazeCanvas.height = this.rows * cell + (this.rows + 1) * wall + border * 2;
 
@@ -51,17 +51,32 @@ class Maze {
     context.fillStyle = "#000000";
     for (let i = 0; i < this.m; i++) {
       for (let j = 0; j < this.n; j++) {
-        switch (this.maze.matrix[i][j]) {
-          case 0:
-            if (showSolution === true) {
-              context.fillStyle = "pink";
+        if (!inverted) {
+          switch (this.maze.matrix[i][j]) {
+            case 0:
+              if (showSolution === true) {
+                context.fillStyle = "pink";
+                break;
+              }
+              continue;
+            case 4:
+              continue;
+            default:
+              context.fillStyle = "#000000";
+          }
+        } else if (inverted) {
+          switch(this.maze.matrix[i][j]) {
+            case 0:
+              if (showSolution === true) {
+                context.fillStyle = "pink";
+                break;
+              }
+            case 4:
+              context.fillStyle = "#000000";
               break;
-            }
-            continue;
-          case 4:
-            continue;
-          default:
-            context.fillStyle = "#000000";
+            default:
+              continue;
+          }
         }
         let wallWidth = j % 2 === 0 ? wall : cell;
         let wallLength = i % 2 === 0 ? wall : cell;
