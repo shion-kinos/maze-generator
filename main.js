@@ -52,10 +52,14 @@ function draw() {
 }
 function switchStyle() {
   if (style.innerText === lang.walls) {
+    let checkedValue = document.querySelector("input[name='wall-thickness']:checked").value;
+    document.querySelector(`input[name='path-width'][value="${checkedValue}"]`).checked = true;
     style.innerText = lang.paths;
     wallThicknessOption.hidden = true;
     pathWidthOption.hidden = false;
   } else if (style.innerText = lang.paths) {
+    let checkedValue = document.querySelector("input[name='path-width']:checked").value;
+    document.querySelector(`input[name='wall-thickness'][value="${checkedValue}"]`).checked = true;
     style.innerText = lang.walls;
     pathWidthOption.hidden = true;
     wallThicknessOption.hidden = false;
