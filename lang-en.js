@@ -1,6 +1,6 @@
 let lang = {
   showSolution: "Show solution",
   hideSolution: "Hide solution",
-  walls: "Walls:",
-  paths: "Paths:"
+  walls: "Wall thickness:",
+  paths: "Path width:"
 };

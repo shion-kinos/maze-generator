@@ -7,13 +7,13 @@
   <body>
     <header style="width: 50%; margin: auto; text-align: center;">
       <h1>迷路生成器</h1>
-      <p>穴掘り法による迷路生成器です。JavaScriptで書きました。</p>
+      <p>この迷路生成器は穴掘り法を使っています。JavaScriptで書きました。</p>
       <a href="https://github.com/shion-kinos/maze-generator" target="_blank" style="text-decoration: none;"><img src="https://cdn.simpleicons.org/github/000000" style="height: 1rem; vertical-align: text-top;">&ensp;GitHubでソースコードを見る</a>
     </header>
     <div id="options" style="display: flex; justify-content: center; margin: auto auto 1rem; padding: 0.5rem;">
       <table style="border-style: solid; padding: 0.5rem 1rem;">
         <tr>
-          <td>マス数　</td>
+          <td>マス数</td>
           <td>
             縦<input id="maze-rows" type="number" value="18" min="1" max="72">マス<br>
             横<input id="maze-cols" type="number" value="18" min="1" max="72">マス
@@ -21,7 +21,7 @@
           <td><button id="generate">作成</button></td>
         </tr>
         <tr>
-          <td>大きさ　</td>
+          <td>大きさ</td>
           <td>
             <select id="size-option">
               <option value="1">1</option>
@@ -34,16 +34,16 @@
           </td>
         </tr>
         <tr>
-          <td>種類　</td>
+          <td>道の種類</td>
           <td>
             <div id="style-option">
-              <input id="paths" type="radio" name="style" value="paths" checked><label for="paths">道路型</label>
-              <input id="lines" type="radio" name="style" value="lines"><label for="lines">線路型</label>
+              <input id="paths" type="radio" name="style" value="paths" checked><label for="paths">道路</label>
+              <input id="lines" type="radio" name="style" value="lines"><label for="lines">線路</label>
             </div>
           </td>
         </tr>
         <tr>
-          <td id="style">壁　</td>
+          <td id="style">壁の厚さ</td>
           <td>
             <div id="wall-thickness-option">
               <input id="wall-1" type="radio" name="wall-thickness" value="1" checked><label for="wall-1">薄い</label>
@@ -58,7 +58,7 @@
           </td>
         </tr>
         <tr>
-          <td>背景　</td>
+          <td>背景</td>
           <td>
             <div id="background-option">
               <input id="transparent" type="radio" name="background" value="transparent" checked><label for="transparent">透明</label>
