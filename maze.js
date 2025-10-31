@@ -38,7 +38,7 @@ class Maze {
 
     let border = cell;
 
-    mazeCanvas.style.borderStyle = document.querySelector("input[name='background']:checked").value === "opaque" ? "double" : "none";
+    mazeCanvas.style.borderStyle = document.querySelector("input[name='image-background']:checked").value === "white" ? "double" : "none";
     mazeCanvas.style.padding = JSON.stringify(Math.max(cell, wall)) + "px";
     mazeCanvas.width = this.cols * cell + (this.cols + 1) * wall + border * 2;
     mazeCanvas.height = this.rows * cell + (this.rows + 1) * wall + border * 2;
