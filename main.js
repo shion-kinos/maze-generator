@@ -2,7 +2,7 @@ let mazeCanvas = document.querySelector("#maze-canvas");
 let context = mazeCanvas.getContext("2d");
 
 let generateButton = document.querySelector("#generate");
-let sizeOption = document.querySelector("#size-option");
+let scaleOption = document.querySelector("#scale-option");
 let styleOption = document.querySelector("#style-option");
 let style = document.querySelector("#style");
 let wallThicknessOption = document.querySelector("#wall-thickness-option");
@@ -14,7 +14,7 @@ let maze = new Maze();
 
 
 generateButton.addEventListener("click", generate);
-sizeOption.addEventListener("change", draw);
+scaleOption.addEventListener("change", draw);
 styleOption.addEventListener("change", switchStyle);
 wallThicknessOption.addEventListener("change", draw);
 pathWidthOption.addEventListener("change", draw);
@@ -35,15 +35,15 @@ function generate() {
 }
 function draw() {
   if (typeof maze.maze === "undefined") return;
-  let size = parseInt(sizeOption.value);
+  let scale = parseInt(scaleOption.value);
   let cell;
   let wall;
   if (style.innerText === lang.walls) {
-    wall = size * document.querySelector("input[name='wall-thickness']:checked").value;
-    cell = size * 6 - wall;
+    wall = scale * document.querySelector("input[name='wall-thickness']:checked").value;
+    cell = scale * 6 - wall;
   } else if (style.innerText === lang.paths) {
-    cell = size * document.querySelector("input[name='path-width']:checked").value;
-    wall = size * 6 - cell;
+    cell = scale * document.querySelector("input[name='path-width']:checked").value;
+    wall = scale * 6 - cell;
   }
   let inverted = style.innerText === lang.paths
   let background = document.querySelector("input[name='background']:checked").value === "opaque";
