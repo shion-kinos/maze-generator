@@ -46,7 +46,7 @@ function draw() {
     wall = scale * 6 - cell;
   }
   let inverted = style.innerText === lang.paths;
-  let imageBackground = document.querySelector("input[name='image-background']:checked").value === "opaque";
+  let imageBackground = document.querySelector("input[name='image-background']:checked").value === "white";
   let showSolution = solutionButton.innerText === lang.showSolution ? false : true;
   maze.draw(cell, wall, inverted, imageBackground, showSolution);
 }
